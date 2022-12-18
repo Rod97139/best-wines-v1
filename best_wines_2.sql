@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Dec 18, 2022 at 12:21 AM
--- Server version: 10.11.0-MariaDB-log
--- PHP Version: 8.1.10
+-- Hôte : 127.0.0.1
+-- Généré le : jeu. 15 déc. 2022 à 10:29
+-- Version du serveur : 10.4.24-MariaDB
+-- Version de PHP : 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `best_wines`
+-- Base de données : `best_wines`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `article`
+-- Structure de la table `article`
 --
 
 CREATE TABLE `article` (
@@ -34,10 +34,10 @@ CREATE TABLE `article` (
   `date` timestamp NOT NULL DEFAULT current_timestamp(),
   `id_user` int(11) DEFAULT NULL,
   `photo_article` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `article`
+-- Déchargement des données de la table `article`
 --
 
 INSERT INTO `article` (`id`, `title`, `content`, `date`, `id_user`, `photo_article`) VALUES
@@ -47,16 +47,16 @@ INSERT INTO `article` (`id`, `title`, `content`, `date`, `id_user`, `photo_artic
 -- --------------------------------------------------------
 
 --
--- Table structure for table `association`
+-- Structure de la table `association`
 --
 
 CREATE TABLE `association` (
   `id_association` int(11) NOT NULL,
   `association_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `association`
+-- Déchargement des données de la table `association`
 --
 
 INSERT INTO `association` (`id_association`, `association_name`) VALUES
@@ -69,16 +69,16 @@ INSERT INTO `association` (`id_association`, `association_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cepage`
+-- Structure de la table `cepage`
 --
 
 CREATE TABLE `cepage` (
   `id_cepage` int(11) NOT NULL,
   `cepage_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cepage`
+-- Déchargement des données de la table `cepage`
 --
 
 INSERT INTO `cepage` (`id_cepage`, `cepage_name`) VALUES
@@ -98,7 +98,7 @@ INSERT INTO `cepage` (`id_cepage`, `cepage_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
+-- Structure de la table `comment`
 --
 
 CREATE TABLE `comment` (
@@ -107,12 +107,12 @@ CREATE TABLE `comment` (
   `text_comment` text NOT NULL,
   `id_product` int(11) NOT NULL,
   `id_sale` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `invoice`
+-- Structure de la table `invoice`
 --
 
 CREATE TABLE `invoice` (
@@ -121,24 +121,24 @@ CREATE TABLE `invoice` (
   `total_price` float NOT NULL,
   `id_sale` int(11) NOT NULL,
   `id_promotion` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_tracking`
+-- Structure de la table `order_tracking`
 --
 
 CREATE TABLE `order_tracking` (
   `id` int(11) NOT NULL,
   `order_state` varchar(255) NOT NULL,
   `id_receipt` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Structure de la table `product`
 --
 
 CREATE TABLE `product` (
@@ -157,10 +157,10 @@ CREATE TABLE `product` (
   `id_type` int(11) NOT NULL,
   `price` float NOT NULL,
   `is_featured` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `product`
+-- Déchargement des données de la table `product`
 --
 
 INSERT INTO `product` (`id`, `name`, `description`, `note_final`, `photo`, `stock`, `alcohol_percentage`, `id_region`, `id_cepage`, `id_taste`, `id_association`, `id_comment`, `id_type`, `price`, `is_featured`) VALUES
@@ -187,7 +187,7 @@ INSERT INTO `product` (`id`, `name`, `description`, `note_final`, `photo`, `stoc
 -- --------------------------------------------------------
 
 --
--- Table structure for table `promotion`
+-- Structure de la table `promotion`
 --
 
 CREATE TABLE `promotion` (
@@ -196,21 +196,21 @@ CREATE TABLE `promotion` (
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `percentage` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `region`
+-- Structure de la table `region`
 --
 
 CREATE TABLE `region` (
   `id_region` int(11) NOT NULL,
   `region_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `region`
+-- Déchargement des données de la table `region`
 --
 
 INSERT INTO `region` (`id_region`, `region_name`) VALUES
@@ -231,7 +231,7 @@ INSERT INTO `region` (`id_region`, `region_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sale`
+-- Structure de la table `sale`
 --
 
 CREATE TABLE `sale` (
@@ -241,10 +241,10 @@ CREATE TABLE `sale` (
   `quantity` int(11) NOT NULL,
   `price_total_product` float DEFAULT NULL,
   `quantity_total_sold` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `sale`
+-- Déchargement des données de la table `sale`
 --
 
 INSERT INTO `sale` (`id`, `id_product`, `id_user`, `quantity`, `price_total_product`, `quantity_total_sold`) VALUES
@@ -253,7 +253,7 @@ INSERT INTO `sale` (`id`, `id_product`, `id_user`, `quantity`, `price_total_prod
 -- --------------------------------------------------------
 
 --
--- Table structure for table `supplier`
+-- Structure de la table `supplier`
 --
 
 CREATE TABLE `supplier` (
@@ -261,10 +261,10 @@ CREATE TABLE `supplier` (
   `name` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `image_supp` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `supplier`
+-- Déchargement des données de la table `supplier`
 --
 
 INSERT INTO `supplier` (`id`, `name`, `content`, `image_supp`) VALUES
@@ -274,16 +274,16 @@ INSERT INTO `supplier` (`id`, `name`, `content`, `image_supp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `taste`
+-- Structure de la table `taste`
 --
 
 CREATE TABLE `taste` (
   `id_taste` int(11) NOT NULL,
   `taste_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `taste`
+-- Déchargement des données de la table `taste`
 --
 
 INSERT INTO `taste` (`id_taste`, `taste_name`) VALUES
@@ -297,16 +297,16 @@ INSERT INTO `taste` (`id_taste`, `taste_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `type_product`
+-- Structure de la table `type_product`
 --
 
 CREATE TABLE `type_product` (
   `id_type` int(11) NOT NULL,
   `type_name` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `type_product`
+-- Déchargement des données de la table `type_product`
 --
 
 INSERT INTO `type_product` (`id_type`, `type_name`) VALUES
@@ -318,7 +318,7 @@ INSERT INTO `type_product` (`id_type`, `type_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Structure de la table `user`
 --
 
 CREATE TABLE `user` (
@@ -327,10 +327,10 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT 0,
   `is_employee` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `user`
+-- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`id`, `email`, `password`, `is_admin`, `is_employee`) VALUES
@@ -340,39 +340,34 @@ INSERT INTO `user` (`id`, `email`, `password`, `is_admin`, `is_employee`) VALUES
 (6, 'jdousse@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$UUxFTjdEUk83SkpkMFQ5Mw$o4edphyBvsZ1DHo84NeR8jgOthM1o7FesWuTk3BHCFI', 1, 1),
 (7, 'jdousse3@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$emxmT3IzdVZjVllxTzZzdA$phIqk1Bt5LvBm1I1SPrRivNfCYH0iWrpHax+Wp/Cqy8', 0, 0),
 (8, 'jdousse@hotmail.fr', '$argon2id$v=19$m=65536,t=4,p=1$bzJGRWhNTnJyVUxjOTQxQw$hCJ1vHDwY+xPnCtqcoh8sN9ltv4I4kIMha8XFRH8QAw', 1, 1),
-(9, 'jdousse2@hotmail.fr ', '$argon2id$v=19$m=65536,t=4,p=1$dWN1WThWcjd3VDd6S1NjUg$OejhNhqCMGBuNkQG7C2DnjzX+qb7MYOonUB2P1SnnQM', 1, 1),
-(11, 'fayaflame@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$LkZUS0NaYWpMUjlhRWxHNQ$0M0k4mKbvyXOGutwFT0ooLCSaNBXGaEd+F0e+s/bEHo', 1, 1),
-(13, 'abc@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$aFNSdDRvWjJLL1RRbUF3Mg$t2Eo/9eUMCReomhUnstDMkfwJTaQVc642PWjrZilbyI', 0, 0),
-(14, '123@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$Ny50VjhkZWtBUjdKOHJxeQ$50g9IZMluRyo4AY3YtC02p/wfDXMA1LqTkFO6ubA1Io', 0, 0),
-(15, '1234@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$WThEYlcyb1NNTDZrVmV4NQ$Pbhbm4IF3EhwDl3+zSzUQgZAlM5oi1dI0HQZPZZyPhI', 0, 0),
-(16, '12345@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$T3l4UTR4Ti44di5CWU8xUQ$k/U9E9NrXQgt0kgQPBA5hiiZEwTUJgNgb6Ukm604II0', 0, 0),
-(17, '3452@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$Tmx4bGlIQUtOcGdxZFVzWA$DlPBMC4pNFVRSkjGupXYAm9HIgR4LEBMrhpJs31CUbM', 0, 0);
+(9, 'jdousse2@hotmail.fr', '$argon2id$v=19$m=65536,t=4,p=1$dWN1WThWcjd3VDd6S1NjUg$OejhNhqCMGBuNkQG7C2DnjzX+qb7MYOonUB2P1SnnQM', 0, 1),
+(10, '', '$argon2id$v=19$m=65536,t=4,p=1$ckRDOGRKdFVxbTVkZjN5TQ$24PLlibICnjbsI31o187kiRF/sdXFp6cm9UUm1NCG7o', 0, 0);
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `article`
+-- Index pour la table `article`
 --
 ALTER TABLE `article`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `association`
+-- Index pour la table `association`
 --
 ALTER TABLE `association`
   ADD PRIMARY KEY (`id_association`);
 
 --
--- Indexes for table `cepage`
+-- Index pour la table `cepage`
 --
 ALTER TABLE `cepage`
   ADD PRIMARY KEY (`id_cepage`);
 
 --
--- Indexes for table `comment`
+-- Index pour la table `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`),
@@ -380,7 +375,7 @@ ALTER TABLE `comment`
   ADD KEY `id_sale` (`id_sale`);
 
 --
--- Indexes for table `invoice`
+-- Index pour la table `invoice`
 --
 ALTER TABLE `invoice`
   ADD PRIMARY KEY (`id`),
@@ -388,14 +383,14 @@ ALTER TABLE `invoice`
   ADD KEY `id_promotion` (`id_promotion`);
 
 --
--- Indexes for table `order_tracking`
+-- Index pour la table `order_tracking`
 --
 ALTER TABLE `order_tracking`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_receipt` (`id_receipt`);
 
 --
--- Indexes for table `product`
+-- Index pour la table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
@@ -407,19 +402,19 @@ ALTER TABLE `product`
   ADD KEY `id_type` (`id_type`);
 
 --
--- Indexes for table `promotion`
+-- Index pour la table `promotion`
 --
 ALTER TABLE `promotion`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `region`
+-- Index pour la table `region`
 --
 ALTER TABLE `region`
   ADD PRIMARY KEY (`id_region`);
 
 --
--- Indexes for table `sale`
+-- Index pour la table `sale`
 --
 ALTER TABLE `sale`
   ADD PRIMARY KEY (`id`),
@@ -427,149 +422,149 @@ ALTER TABLE `sale`
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `supplier`
+-- Index pour la table `supplier`
 --
 ALTER TABLE `supplier`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `taste`
+-- Index pour la table `taste`
 --
 ALTER TABLE `taste`
   ADD PRIMARY KEY (`id_taste`);
 
 --
--- Indexes for table `type_product`
+-- Index pour la table `type_product`
 --
 ALTER TABLE `type_product`
   ADD PRIMARY KEY (`id_type`);
 
 --
--- Indexes for table `user`
+-- Index pour la table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `article`
+-- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `association`
+-- AUTO_INCREMENT pour la table `association`
 --
 ALTER TABLE `association`
   MODIFY `id_association` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `cepage`
+-- AUTO_INCREMENT pour la table `cepage`
 --
 ALTER TABLE `cepage`
   MODIFY `id_cepage` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `comment`
+-- AUTO_INCREMENT pour la table `comment`
 --
 ALTER TABLE `comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `invoice`
+-- AUTO_INCREMENT pour la table `invoice`
 --
 ALTER TABLE `invoice`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `order_tracking`
+-- AUTO_INCREMENT pour la table `order_tracking`
 --
 ALTER TABLE `order_tracking`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `product`
+-- AUTO_INCREMENT pour la table `product`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10020;
 
 --
--- AUTO_INCREMENT for table `promotion`
+-- AUTO_INCREMENT pour la table `promotion`
 --
 ALTER TABLE `promotion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `region`
+-- AUTO_INCREMENT pour la table `region`
 --
 ALTER TABLE `region`
   MODIFY `id_region` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `sale`
+-- AUTO_INCREMENT pour la table `sale`
 --
 ALTER TABLE `sale`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `supplier`
+-- AUTO_INCREMENT pour la table `supplier`
 --
 ALTER TABLE `supplier`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `taste`
+-- AUTO_INCREMENT pour la table `taste`
 --
 ALTER TABLE `taste`
   MODIFY `id_taste` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `type_product`
+-- AUTO_INCREMENT pour la table `type_product`
 --
 ALTER TABLE `type_product`
   MODIFY `id_type` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `article`
+-- Contraintes pour la table `article`
 --
 ALTER TABLE `article`
   ADD CONSTRAINT `article_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `comment`
+-- Contraintes pour la table `comment`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`id_sale`) REFERENCES `sale` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `invoice`
+-- Contraintes pour la table `invoice`
 --
 ALTER TABLE `invoice`
   ADD CONSTRAINT `invoice_ibfk_1` FOREIGN KEY (`id_sale`) REFERENCES `sale` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `invoice_ibfk_2` FOREIGN KEY (`id_promotion`) REFERENCES `promotion` (`id`);
 
 --
--- Constraints for table `order_tracking`
+-- Contraintes pour la table `order_tracking`
 --
 ALTER TABLE `order_tracking`
   ADD CONSTRAINT `order_tracking_ibfk_1` FOREIGN KEY (`id_receipt`) REFERENCES `invoice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `product`
+-- Contraintes pour la table `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`id_region`) REFERENCES `region` (`id_region`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -580,7 +575,7 @@ ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_6` FOREIGN KEY (`id_type`) REFERENCES `type_product` (`id_type`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `sale`
+-- Contraintes pour la table `sale`
 --
 ALTER TABLE `sale`
   ADD CONSTRAINT `sale_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
